@@ -4,30 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-            <import type="android.view.View"/>
+        <import type="android.view.View"/>
         <variable
             name="vm"
-            type="com.kamal.chatapplication.login.LoginViewModel" />
+            type="com.kamal.chatapplication.register.RegisterViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".login.LoginActivity">
-
+        tools:context=".register.RegisterActivity">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="12dp"
             android:layout_marginBottom="15dp"
             android:orientation="vertical">
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:text="@={vm.name}"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*Please enter valid name"
+                android:textStyle="bold"
+                android:textColor="@color/red"
+                android:visibility="@{vm.nameError?View.VISIBLE:View.GONE}"
+                />
+
+            <EditText
+                android:id="@+id/user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="User Name"
+                android:text="@={vm.userName}"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*Please enter valid user name"
+                android:textStyle="bold"
+                android:textColor="@color/red"
+                android:visibility="@{vm.userNameError?View.VISIBLE:View.GONE}"
+                />
 
             <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
-                android:text="@={vm.email}" />
+                android:text="@={vm.email}"
+                 />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -44,7 +76,8 @@
                 android:layout_height="wrap_content"
                 android:hint="Password"
                 android:inputType="textWebPassword"
-                android:text="@={vm.password}" />
+                android:text="@={vm.password}"
+                 />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -58,36 +91,13 @@
                 android:id="@+id/log"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Login"
+                android:text="Register"
                 android:layout_marginTop="10dp"
                 android:layout_margin="5dp"
                 android:textColor="@color/white"
                 android:background="@color/purple_700"
-                android:onClick="@{()->vm.login()}"
+                android:onClick="@{()->vm.register()}"
                 />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="12dp"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Don't have account?!"
-                    android:textStyle="bold"
-                    />
-                <TextView
-                    android:id="@+id/register"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Register"
-                    android:textStyle="bold"
-                    android:textColor="@color/red"
-                    android:onClick="@{()->vm.goToRegister()}"
-                    />
-            </LinearLayout>
         </LinearLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

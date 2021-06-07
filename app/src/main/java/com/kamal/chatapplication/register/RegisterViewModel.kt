@@ -1,22 +1,42 @@
-package com.kamal.chatapplication.login
+package com.kamal.chatapplication.register
 
-import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
-import com.kamal.chatapplication.base.BaseViewModel
 
-class LoginViewModel:BaseViewModel<Navigator>() {
+class RegisterViewModel:ViewModel() {
+    val name = ObservableField<String>()
+    val userName = ObservableField<String>()
     val email = ObservableField<String>()
     val password = ObservableField<String>()
+    var nameError = ObservableField<Boolean>(false)
+    var userNameError = ObservableField<Boolean>(false)
     var emailError = ObservableField<Boolean>(false)
     var passwordError = ObservableField<Boolean>(false)
-    fun login()
+    fun register()
     {
         if(!isValid()) return
     }
     fun isValid():Boolean
     {
         var valid = true
+        if(name.get().isNullOrBlank())
+        {
+            nameError.set(true)
+            valid = false
+        }
+        else
+        {
+            nameError.set(false)
+        }
+        if(userName.get().isNullOrBlank())
+        {
+            userNameError.set(true)
+            valid = false
+        }
+        else
+        {
+            userNameError.set(false)
+        }
         if(email.get().isNullOrBlank())
         {
             emailError.set(true)
@@ -36,9 +56,5 @@ class LoginViewModel:BaseViewModel<Navigator>() {
             passwordError.set(false)
         }
         return valid
-    }
-    fun goToRegister()
-    {
-        navigator?.goToRegister()
     }
 }
