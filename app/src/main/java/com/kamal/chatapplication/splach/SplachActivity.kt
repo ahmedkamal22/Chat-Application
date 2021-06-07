@@ -1,10 +1,11 @@
-package com.kamal.chatapplication
+package com.kamal.chatapplication.splach
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import com.kamal.chatapplication.R
 import com.kamal.chatapplication.login.LoginActivity
 
 class SplachActivity : AppCompatActivity() {
