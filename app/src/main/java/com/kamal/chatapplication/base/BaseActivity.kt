@@ -7,15 +7,25 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
+import com.kamal.chatapplication.base.BaseViewModel
 
-abstract class BaseActivity<DB:ViewDataBinding,VM:ViewModel>:AppCompatActivity(){
+abstract class BaseActivity<DB:ViewDataBinding,VM:BaseViewModel<*>>:AppCompatActivity(){
+    //* for any
     lateinit var viewDataBinding: DB
     lateinit var viewModel: VM
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewDataBinding = DataBindingUtil.setContentView(this,getLayoutID())
         viewModel = intializeViewModel()
+        viewModel.messageLiveData.observe(this, Observer {
+            message->
+            showDialog(message = message,posActionName = "ok",
+                posAction = DialogInterface.OnClickListener { dialog, which ->
+                    dialog.dismiss()
+                })
+        })
     }
 
     abstract fun intializeViewModel(): VM

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "925114658126",
+    "project_id": "chat-appilcation-1086d",
+    "storage_bucket": "chat-appilcation-1086d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:925114658126:android:96dd525b478a88cd7fc21f",
+        "android_client_info": {
+          "package_name": "com.kamal.chatapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "925114658126-41t9erno3fbi5bp37dc7nlea2795vbtv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kamal.chatapplication",
+            "certificate_hash": "c57a261c7d74a4f58d54cd1405121117d7ec3a0b"
+          }
+        },
+        {
+          "client_id": "925114658126-bvga3117rgkfjecii5900ubirpg3boaa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA7RF5_-k9JcEiwwY56Gr_dMeWqoCsPSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "925114658126-bvga3117rgkfjecii5900ubirpg3boaa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

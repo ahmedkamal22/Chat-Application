@@ -1,5 +1,6 @@
 package com.kamal.chatapplication.login
 
-interface Navigator {
+interface LoginNavigator {
     fun goToRegister()
+    fun goToHome()
 }
