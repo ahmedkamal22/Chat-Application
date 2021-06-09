@@ -5,6 +5,7 @@ import androidx.databinding.ObservableField
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.kamal.chatapplication.UserCurrentData
 import com.kamal.chatapplication.base.BaseViewModel
 import com.kamal.chatapplication.database.User
 import com.kamal.chatapplication.database.UserDao
@@ -42,6 +43,7 @@ class RegisterViewModel:BaseViewModel<RegisterNavigator>() {
         UserDao.addUser(user, OnCompleteListener {
             if(it.isSuccessful)
             {
+                UserCurrentData.user = user
                 navigator?.goToHome()
             }
             else

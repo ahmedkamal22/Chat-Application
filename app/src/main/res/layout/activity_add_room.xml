@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="addRoomViewModel"
+            type="com.kamal.chatapplication.addroom.AddRoomViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="12dp"
+        tools:context=".addroom.AddRoomActivity">
+     <EditText
+         android:id="@+id/roomName"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:hint="Room Name"
+         android:lines="1"
+         android:maxLines="1"
+         android:text="@={addRoomViewModel.roomName}"
+         />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*Please enter room name"
+            android:textStyle="bold"
+            android:textColor="@color/red"
+            android:visibility="@{addRoomViewModel.roomNameError?View.VISIBLE:View.GONE}"
+            />
+        <EditText
+            android:id="@+id/roomDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Room Description"
+            android:maxLines="4"
+            android:lines="4"
+            android:gravity="start"
+            android:text="@={addRoomViewModel.roomDesc}"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*Please enter room description"
+            android:textStyle="bold"
+            android:textColor="@color/red"
+            android:visibility="@{addRoomViewModel.roomDescError?View.VISIBLE:View.GONE}"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Room"
+            android:textColor="@color/white"
+            android:onClick="@{()->addRoomViewModel.addRoom()}"
+            />
+    </LinearLayout>
+</layout>

@@ -5,6 +5,7 @@ import androidx.databinding.ObservableField
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.kamal.chatapplication.UserCurrentData
 import com.kamal.chatapplication.base.BaseViewModel
 import com.kamal.chatapplication.database.User
 import com.kamal.chatapplication.database.UserDao
@@ -39,7 +40,8 @@ class LoginViewModel:BaseViewModel<LoginNavigator>() {
             {
                 val currentUser = snapshot.result?.toObject(User::class.java) // this line for getting current user who is retrived from data base
                 //to object used for converting data to User type
-                Log.e("Current User: ",currentUser?.email?:"")
+                //Log.e("Current User ",currentUser?.email?:"")
+                UserCurrentData.user = currentUser
                 navigator?.goToHome()
             }
             else
