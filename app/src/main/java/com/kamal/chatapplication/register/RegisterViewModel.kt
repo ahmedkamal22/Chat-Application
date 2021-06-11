@@ -44,7 +44,7 @@ class RegisterViewModel:BaseViewModel<RegisterNavigator>() {
             if(it.isSuccessful)
             {
                 UserCurrentData.user = user
-                navigator?.goToHome()
+                navigator?.goToLoginScreen()
             }
             else
             {
