@@ -1,4 +1,4 @@
-package com.kamal.chatapplication.home
+ package com.kamal.chatapplication.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.islami.base.BaseActivity
 import com.kamal.chatapplication.R
 import com.kamal.chatapplication.addroom.AddRoomActivity
+import com.kamal.chatapplication.chat.ChatRoomActivity
+import com.kamal.chatapplication.database.Room
 import com.kamal.chatapplication.databinding.ActivityHomeBinding
 
 class HomeActivity : BaseActivity<ActivityHomeBinding,HomeViewModel>(),HomeNavigator {
@@ -31,6 +33,13 @@ class HomeActivity : BaseActivity<ActivityHomeBinding,HomeViewModel>(),HomeNavig
     }
     private fun setUpViews() {
         roomsAdapter = RoomsAdapter(listOf())
+        roomsAdapter.onRoomClickListener = object :RoomsAdapter.onItemClickListener{
+            override fun onItemClick(position: Int, room: Room) {
+                val intent = Intent(this@HomeActivity,ChatRoomActivity::class.java)
+                intent.putExtra("room",room) // here I sent all the room rather than field field
+                startActivity(intent)
+            }
+        }
         viewDataBinding.roomRecyclerView.adapter = roomsAdapter
     }
 

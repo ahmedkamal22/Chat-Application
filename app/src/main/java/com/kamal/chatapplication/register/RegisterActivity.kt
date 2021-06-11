@@ -7,6 +7,7 @@ import com.example.islami.base.BaseActivity
 import com.kamal.chatapplication.R
 import com.kamal.chatapplication.databinding.ActivityRegisterBinding
 import com.kamal.chatapplication.home.HomeActivity
+import com.kamal.chatapplication.login.LoginActivity
 
 class RegisterActivity : BaseActivity<ActivityRegisterBinding,RegisterViewModel>(),RegisterNavigator {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,8 +24,8 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding,RegisterViewModel>
         return R.layout.activity_register
     }
 
-    override fun goToHome() {
-        val intent = Intent(this,HomeActivity::class.java)
+    override fun goToLoginScreen() {
+        val intent = Intent(this,LoginActivity::class.java)
         startActivity(intent)
     }
 }

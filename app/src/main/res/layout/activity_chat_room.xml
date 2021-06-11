@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="chatRoomViewModel"
+            type="com.kamal.chatapplication.chat.ChatRoomViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:background="@drawable/msg"
+        tools:context=".chat.ChatRoomActivity">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chat_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/msg"
+            android:layout_marginBottom="8dp"
+            />
+        <ImageView
+            android:id="@+id/ic_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/send_btn"
+            android:src="@drawable/ic_send"
+            android:padding="8dp"
+            android:onClick="@{()->chatRoomViewModel.send()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+        <EditText
+            android:id="@+id/msg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/mesg_sent"
+            android:text="@={chatRoomViewModel.message}"
+            android:hint="Write your message here!!"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ic_send"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ic_send"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*This field couldn't be empty"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/red"
+            android:visibility="@{chatRoomViewModel.messageError?View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toTopOf="@id/msg"
+            app:layout_constraintStart_toStartOf="@id/msg"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

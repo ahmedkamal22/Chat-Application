@@ -12,9 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChatApplication">
-        <activity android:name=".addroom.AddRoomActivity"
+        <activity android:name=".chat.ChatRoomActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
+        <activity
+            android:name=".addroom.AddRoomActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
         <activity
             android:name=".home.HomeActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
