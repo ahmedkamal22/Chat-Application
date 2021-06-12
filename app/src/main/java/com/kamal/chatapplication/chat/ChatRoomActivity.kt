@@ -44,7 +44,7 @@ class ChatRoomActivity : BaseActivity<ActivityChatRoomBinding,ChatRoomViewModel>
                     }
                 }
                 messagesAdapter.addMessages(addMessages)
-                viewDataBinding.chatRecyclerView.smoothScrollToPosition(messagesAdapter.messageList.size-1) // I used this function to always scroll down the recycler view when new message is being sent
+                viewDataBinding.chatRecyclerView.smoothScrollToPosition(messagesAdapter.messageList.size) // I used this function to always scroll down the recycler view when new message is being sent
             }
     }
     private fun setUpViews() {
