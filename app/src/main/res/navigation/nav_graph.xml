@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splachFragment">
+
+    <fragment
+        android:id="@+id/splachFragment"
+        android:name="com.kamal.chatapplication.splach.SplachFragment"
+        android:label="SplachFragment"
+        tools:layout="@layout/activity_splach"
+        >
+        <action
+            android:id="@+id/action_splachFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.kamal.chatapplication.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/activity_login"
+        >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/addRoomFragment"
+        android:name="com.kamal.chatapplication.addroom.AddRoomFragment"
+        android:label="AddRoomFragment"
+        tools:layout="@layout/activity_add_room"
+        />
+    <fragment
+        android:id="@+id/chatRoomFragment"
+        android:name="com.kamal.chatapplication.chat.ChatRoomFragment"
+        android:label="ChatRoomFragment"
+        tools:layout="@layout/activity_chat_room"
+        >
+        <argument
+            android:name="room"
+            app:argType="com.kamal.chatapplication.database.Room" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.kamal.chatapplication.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/activity_home"
+        >
+        <action
+            android:id="@+id/action_homeFragment_to_addRoomFragment"
+            app:destination="@id/addRoomFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_chatRoomFragment"
+            app:destination="@id/chatRoomFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.kamal.chatapplication.register.RegisterFragment"
+        android:label="RegisterFragment"
+        tools:layout="@layout/activity_register"
+        >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+</navigation>
